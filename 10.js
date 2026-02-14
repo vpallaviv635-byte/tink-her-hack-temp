@@ -3,7 +3,7 @@ function logout() {
  if(confirm('Are you sure you want to logout?')) {
   localStorage.removeItem('rememberMe');
   localStorage.removeItem('userEmail');
-  window.location.href = 'login.html';
+  window.location.href = './login.html';
  }
 }
 
