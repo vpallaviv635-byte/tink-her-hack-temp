@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Smart Food Expiry AI PRO</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="10.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+  <h1>🥬 Smart Food Expiry AI PRO</h1>
+  <button onclick="logout()" style="background: #ff5252; padding: 8px 15px; font-size: 14px; cursor: pointer; border: none; border-radius: 8px; color: white; font-weight: 600;">🚪 Logout</button>
+</div>
+
+<div id="notificationPopup" class="expiry-warning"></div>
+
+<div class="card">
+
+<label>🍎 Add Item (AI will identify it automatically)</label>
+<input id="foodName" placeholder="Food name (Tomato, Milk, Apple...)">
+<label style="margin-top: 8px; display: block; font-size: 12px; opacity: 0.8;">📅 Expiry Date (Optional for Vegetables & Fruits)</label>
+<input type="date" id="expiryDate" placeholder="Leave blank for auto-calculate">
+<small style="display: block; margin-top: 4px; opacity: 0.7;">💡 For produce like tomato, apple, mango, etc. - we'll auto-calculate based on storage!</small>
+
+<label style="margin-top: 10px; display: block; font-weight: 600;">📍 Storage Location:</label>
+<div style="display: flex; gap: 15px; margin-top: 8px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+  <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; margin: 0;">
+    <input type="radio" name="storageLocation" id="fridgeOption" value="fridge" checked style="cursor: pointer;">
+    <span>❄️ Fridge (7-10 days)</span>
+  </label>
+  <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; margin: 0;">
+    <input type="radio" name="storageLocation" id="outsideOption" value="outside" style="cursor: pointer;">
+    <span>🌡️ Outside (3-4 days)</span>
+  </label>
+</div>
+
+<button onclick="addItem()">➕ Add Item</button>
+
+<div id="notification"></div>
+
+<div class="card" style="margin-top: 15px; background: rgba(76, 175, 80, 0.1); border-left: 4px solid #4CAF50;">
+<h3 style="color: #4CAF50; margin-top: 0;">🥗 Nutrition Summary</h3>
+<div id="nutritionSummary" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+  <div style="text-align: center; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+    <div style="font-size: 24px; font-weight: 700; color: #FF6B6B;">0</div>
+    <div style="font-size: 12px; opacity: 0.8;">Calories</div>
+  </div>
+  <div style="text-align: center; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+    <div style="font-size: 24px; font-weight: 700; color: #4ECDC4;">0g</div>
+    <div style="font-size: 12px; opacity: 0.8;">Protein</div>
+  </div>
+  <div style="text-align: center; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+    <div style="font-size: 24px; font-weight: 700; color: #FFE66D;">0g</div>
+    <div style="font-size: 12px; opacity: 0.8;">Carbs</div>
+  </div>
+  <div style="text-align: center; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 10px;">
+    <div style="font-size: 24px; font-weight: 700; color: #FF9FF3;">0g</div>
+    <div style="font-size: 12px; opacity: 0.8;">Fat</div>
+  </div>
+</div>
+</div>
+
+<div id="wasteTracker" class="waste">♻️ Waste Produced: 0g</div>
+
+</div>
+
+<div class="grid">
+<div><h3>🍽️ Eat Now</h3><div id="eatNow"></div></div>
+<div><h3>🕒 Eat Later</h3><div id="eatLater"></div></div>
+<div><h3>⚠️ Expired</h3><div id="expired"></div></div>
+</div>
+
+<div class="card">
+<h3>🤖 AI Recipe Assistant (Powered by Gemini)</h3>
+<p style="font-size: 12px; opacity: 0.8;">Try: <strong>Pasta, Rice, Bread, Eggs, Fish, Tomato, Carrot, Spinach, Milk, Onion, Potato, Apple, Banana, Chicken, Salad</strong></p>
+<div id="chat" class="chatbox"></div>
+<textarea id="chatInput" placeholder="Ask: 'Give me pasta recipe' or 'How to make egg dish'..."></textarea>
+<button onclick="sendChat()">🎯 Generate Recipe</button>
+</div>
+
+</div>
+
+<script src="10.js"></script>
+
+</body>
+</html>

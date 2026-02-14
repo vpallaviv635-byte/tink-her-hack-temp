@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Smart Food Expiry AI PRO</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+* {
+  font-family: Poppins;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: white;
+  background:
+    linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+    url("https://images.unsplash.com/photo-1498837167922-ddd27525d352");
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.login-container {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 40px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-header h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.login-header p {
+  font-size: 14px;
+  opacity: 0.8;
+  color: #a5ffb2;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.form-group input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.form-group input:focus {
+  outline: none;
+  background: rgba(255,255,255,0.25);
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 13px;
+}
+
+.remember-forgot a {
+  color: #FFE66D;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.remember-forgot a:hover {
+  color: #FFA726;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #4CAF50;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 15px;
+}
+
+.login-btn:hover {
+  background: #45a049;
+}
+
+.login-btn:active {
+  transform: scale(0.98);
+}
+
+.signup-link {
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.signup-link a {
+  color: #4ECDC4;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.signup-link a:hover {
+  color: #a5ffb2;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 25px 0;
+  gap: 10px;
+  opacity: 0.6;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.3);
+}
+
+.divider span {
+  font-size: 12px;
+}
+
+.social-login {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.social-btn {
+  padding: 12px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.social-btn:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.5);
+}
+
+.error-message {
+  color: #FF6B6B;
+  font-size: 12px;
+  margin-top: 5px;
+  display: none;
+}
+
+.success-message {
+  color: #a5ffb2;
+  font-size: 12px;
+  margin-top: 5px;
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .login-container {
+    padding: 30px 20px;
+  }
+  
+  .login-header h1 {
+    font-size: 24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+  <div class="login-header">
+    <h1>🥬 Smart Food Expiry</h1>
+    <p>Keep your food fresh & waste-free</p>
+  </div>
+
+  <form id="loginForm">
+    <div class="form-group">
+      <label for="email">📧 Email or Username</label>
+      <input type="text" id="email" placeholder="Enter your email or username" required>
+      <div class="error-message" id="emailError"></div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">🔐 Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required>
+      <div class="error-message" id="passwordError"></div>
+    </div>
+
+    <div class="remember-forgot">
+      <div class="checkbox-wrapper">
+        <input type="checkbox" id="rememberMe" name="rememberMe">
+        <label for="rememberMe" style="margin: 0;">Remember me</label>
+      </div>
+      <a href="#" onclick="showForgotPassword(event)">Forgot Password?</a>
+    </div>
+
+    <button type="submit" class="login-btn">🚀 Login</button>
+    <div class="success-message" id="successMessage">Login successful! Redirecting...</div>
+  </form>
+
+  <div class="divider">
+    <span>OR</span>
+  </div>
+
+  <div class="social-login">
+    <button class="social-btn" onclick="socialLogin('google', event)">🔵 Google</button>
+    <button class="social-btn" onclick="socialLogin('facebook', event)">📘 Facebook</button>
+  </div>
+
+  <div class="signup-link">
+    Don't have an account? <a href="#" onclick="showSignup(event)">Sign Up</a>
+  </div>
+</div>
+
+<script>
+// Login form submission
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  
+  // Clear error messages
+  document.getElementById('emailError').style.display = 'none';
+  document.getElementById('passwordError').style.display = 'none';
+  
+  let isValid = true;
+  
+  // Validation
+  if (!email) {
+    document.getElementById('emailError').textContent = 'Email or username is required';
+    document.getElementById('emailError').style.display = 'block';
+    isValid = false;
+  }
+  
+  if (!password) {
+    document.getElementById('passwordError').textContent = 'Password is required';
+    document.getElementById('passwordError').style.display = 'block';
+    isValid = false;
+  }
+  
+  if (password && password.length < 6) {
+    document.getElementById('passwordError').textContent = 'Password must be at least 6 characters';
+    document.getElementById('passwordError').style.display = 'block';
+    isValid = false;
+  }
+  
+  if (isValid) {
+    // Save login info if "Remember me" is checked
+    if (document.getElementById('rememberMe').checked) {
+      localStorage.setItem('rememberMe', 'true');
+      localStorage.setItem('userEmail', email);
+    }
+    
+    // Show success message
+    document.getElementById('successMessage').style.display = 'block';
+    
+    // Simulate login delay then redirect
+    setTimeout(() => {
+      // Redirect to main app
+      window.location.href = '10.html';
+    }, 1500);
+  }
+});
+
+function showForgotPassword(e) {
+  e.preventDefault();
+  alert('🔐 Password reset link sent to your email!\n\nCheck your inbox.');
+}
+
+function showSignup(e) {
+  e.preventDefault();
+  alert('📝 Sign up coming soon!\n\nFor now, use these test credentials:\nEmail: demo@example.com\nPassword: demo123');
+}
+
+function socialLogin(platform, e) {
+  e.preventDefault();
+  alert(`🔗 ${platform.toUpperCase()} login coming soon!`);
+}
+
+// Auto-fill if "Remember me" was previously selected
+window.addEventListener('load', function() {
+  if (localStorage.getItem('rememberMe') === 'true') {
+    document.getElementById('email').value = localStorage.getItem('userEmail') || '';
+    document.getElementById('rememberMe').checked = true;
+  }
+});
+</script>
+
+</body>
+</html>
