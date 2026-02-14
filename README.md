@@ -2,80 +2,47 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# FRESH TRACK 🎯
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: DATA DREAMERS
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: Pallavi V - Jyothi Engineering College
+- Member 2: Sajla Fathima - Jyothi Engineering College
 
 ### Hosted Project Link
 [mention your project hosted link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+The purpose of the Smart Food Expiry AI App is to reduce food waste by helping users track expiry dates, receive recipe suggestions, and monitor waste through an intelligent and user-friendly system.
 
 ### The Problem statement
-[What problem are you solving?]
+People often waste food because they forget expiry dates and lack smart guidance on how to use ingredients before they spoil.
 
 ### The Solution
-[How are you solving it?]
+A Smart Food Expiry AI App that tracks expiry dates, suggests recipes, sends alerts, and monitors waste to help users manage food efficiently.
 
----
 
 ## Technical Details
 
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
-
-**For Hardware:**
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
-
----
+- Languages used: HTML,CSS,JavaScript
+- Tools used: VS Code
 
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+- Feature 1: Smart expiry tracking
+- Feature 2: recipe generator chatbot
+- Feature 3: expiry alert notification
+- Feature 4: nutritional analysis
 
 ---
 
-## Implementation
-
-### For Software:
-
-#### Installation
-```bash
-[Installation commands - e.g., npm install, pip install -r requirements.txt]
-```
-
-#### Run
-```bash
-[Run commands - e.g., npm start, python app.py]
-```
-
-### For Hardware:
-
-#### Components Required
-[List all components needed with specifications]
-
-#### Circuit Setup
-[Explain how to set up the circuit]
-
----
 
 ## Project Documentation
 
