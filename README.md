@@ -9,17 +9,16 @@
 ### Team Name: [Name]
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1:Pallavi V  - JEC 
+- Member 2: Sajla Fathima PS - JEC 
 
 ### Hosted Project Link
 [mention your project hosted link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+ 
 
 ### The Problem statement
-[What problem are you solving?]
 
 ### The Solution
 [How are you solving it?]
